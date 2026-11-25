@@ -25,7 +25,7 @@ root_dir=$(cd "$script_dir/.." && pwd)
 out_dir="$root_dir/build"
 mkdir -p "$out_dir"
 
-"$CC" -shared -fPIC -O2 -Wall -Wextra \
+"$CC" -shared -fPIC -O2 -Wall -Wextra -pthread \
     -march=armv7-a -mfpu=neon -mfloat-abi=hard \
     -Wl,--no-undefined \
     -o "$out_dir/libtnh.so" \
