@@ -32,9 +32,13 @@ the next:
 
 - **Recon — done.** Figured out it's Qt6, found the symbols, found exactly where
   Nickel gets launched. All in `docs/findings.md`.
-- **Stage A — proof of life.** A tiny library that does one thing: write a line
-  to a log file so I can confirm "yes, my code ran inside Nickel." No Qt, no
-  menus, nothing that can crash the UI. This is what's built right now.
+- **Stage A — proof of life. DONE (2026-11-25).** A tiny library that does one
+  thing: write a line to a log file so I can confirm "yes, my code ran inside
+  Nickel." No Qt, no menus, nothing that can crash the UI. Flashed and verified
+  on-device — `hook-alive.log` showed the constructor running in the Nickel
+  process (and, as expected, every child it spawns: ~23 PIDs). So LD_PRELOAD
+  into a Qt6 Nickel genuinely works. Next hook must scope itself to the real
+  Nickel process before acting.
 - **Stage B — a cheap trigger.** Watch for some simple in-process event and
   launch a full-screen stats page drawn with `fbink`.
 - **Stage C — a real menu entry.** The dream: an actual item in Nickel's menu.
