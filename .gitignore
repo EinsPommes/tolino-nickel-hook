@@ -1,0 +1,11 @@
+# build output
+/build/
+*.so
+*.o
+
+# extracted device binaries / images (never commit these)
+*.ext4
+*.img
+*.tar
+*.sqlite
+libnickel*
